@@ -9,4 +9,30 @@ class SanPham extends Model
 {
     use HasFactory;
 	
+	protected $table = 'sanpham';
+	
+	protected $fillable = [
+		'loaisanpham_id',
+		'hangsanxuat_id',
+		'tensanpham',
+		'tensanpham_slug',
+		'soluong',
+		'dongia',
+		'hinhanh',
+		'motasanpham',
+		];
+	public function LoaiSanPham() 
+	{
+		return $this->belongsTo(LoaiSanPham::class, 'loaisanpham_id', 'id');
+	}
+	
+	public function HangSanXuat() 
+	{
+		return $this->belongsTo(HangSanXuat::class, 'hangsanxuat_id', 'id');
+	}
+	
+	public function DonHang_ChiTiet()
+	{
+		return $this->hasMany(DonHang_ChiTiet::class, 'sanpham_id', 'id');
+	}
 }
