@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class HangSanXuat extends Model
 {
-    use HasFactory;
+    use HasFactory;use HasFactory;
 	
+	protected $table = 'hangsanxuat';
+	
+	public function SanPham()
+	{
+		return $this->hasMany(SanPham::class, 'loaisanpham_id', 'id');
+	}
 }

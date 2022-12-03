@@ -9,4 +9,21 @@ class DonHang extends Model
 {
     use HasFactory;
 	
+	protected $table = 'donhang';
+	
+	public function User()
+	{
+		return $this->belongsTo(User::class, 'user_id', 'id');
+	}
+	
+	public function TinhTrang()
+	{
+		return $this->belongsTo(TinhTrang::class, 'tinhtrang_id', 'id');
+	}
+	
+	public function DonHang_ChiTiet()
+	{
+		return $this->hasMany(DonHang_ChiTiet::class, 'donhang_id', 'id');
+	}
+	
 }

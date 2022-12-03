@@ -8,4 +8,4 @@ use Illuminate\Database\Eloquent\Model;
 class DonHang_ChiTiet extends Model
 {
     use HasFactory;
-	
+}	
